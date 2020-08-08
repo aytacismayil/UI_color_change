@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Palettes</title>
+</head>
+<body>
+<div class="ghost-element"></div>
+    <img src="./color-picker-2.png" alt="picker icon" class="tracker">
+    <main>
+        <div class="indicator"></div>
+        <img src="./move-tool-2.png" title="Press V key" alt="arrow" class="move-tool">
+        <img src="./color-picker-2.png"  title="Press I key after selecting any card elements"  alt="picker icon" class="color-picker">
+        <section class="hsl-ranges">
+            <div class="form-container">
+                <form>
+                    <label for="hue" class="hueText">Hue</label>
+                    <input type="range" min="0" max="360" step="1" value="40" id="hue" name="hue">
+          
+                    <label for="saturation" class="saturationText">Saturation</label>
+                    <input type="range" min="0" max="100" step="1" value="72" id="saturation" name="saturation">
+          
+                    <label for="brightness" class="brightnessText">Luminosity</label>
+                    <input type="range" min="0" max="100" step="1" value="56" id="brightness" name="brightness">
+                </form>
+                <div class="output">
+                     <h3>hsl(<span onkeypress="return (this.innerText.length <= 2)" contenteditable="true" class="hueValue">40</span>&deg;, <span onkeypress="return (this.innerText.length <= 2)" contenteditable="true" class="saturationValue">72</span>%, <span onkeypress="return (this.innerText.length <= 2)" contenteditable="true" class="brightnessValue">56</span>%)</h3> 
+                     
+                     <!-- onkeypress="return (this.innerText.length <= 2)" -->
+                </div>
+            </div>
+        </section>
+
+        <section class="palette-cards">
+            <div class="palette">
+                <div class="palette__container">
+                    <div class="color-container">
+                        <div class="color1 color"></div>
+                        <p onkeypress="return (this.innerText.length <= 6)" contenteditable="true">#505050</p>
+                    </div>
+                    
+                    <div class="color-container">
+                        <div class="color2 color"></div>
+                        <p onkeypress="return (this.innerText.length <= 6)" contenteditable="true">#B5B5B5</p>
+                    </div>
+                    <div class="color-container">
+                        <div class="color3 color"></div>
+                        <p onkeypress="return (this.innerText.length <= 6)" contenteditable="true">#666666</p>
+                    </div>
+                    <div class="color-container">
+                        <div class="color4 color"></div>
+                        <p onkeypress="return (this.innerText.length <= 6)" contenteditable="true">#000000</p>
+                    </div>
+                    <div class="color-container">
+                        <div class="color5 color"></div>
+                        <p onkeypress="return (this.innerText.length <= 6)" contenteditable="true">#FFFFFF</p>
+                    </div>
+
+                    <h2>Your Palette</h2>
+                    <!-- <img src="./lock-icon.svg" alt="lock icon" title="The palette is unlocked"> -->
+                    <img class="reset-icon" src="./reset-icon.svg" alt="reset icon" title="Reset your palette">
+                    <img class="add-to-folder-icon" src="./add-to-folder.svg" alt="add to folder icon" title="Add your palette to the storage">
+                </div>
+            </div>
+            
+        </section>
+    </main>
+    <div class="modal-overlay"></div>
+
+    <div class="add-palette-dialog-box">
+        <img class="close-icon" src="./close-icon.svg" alt="close icon">
+        <div class="modal-colors">
+            <div class="color color1"></div>
+            <div class="color color2"></div>
+            <div class="color color3"></div>
+            <div class="color color4"></div>
+            <div class="color color5"></div>
+        </div>
+        <form id="add-palette">
+            <input type="text" placeholder="Type a name..." name="paletteName" required>
+            <input type="submit" value="Add to storage" class="add-to-storage"></input>
+        </form>
+    </div>
+
+
+    <div class="palettesList-container">
+        <img class="palettesList-container__close-icon" src="./close-icon.svg" alt="close icon">
+        
+        <!-- <img class="palettesList-container__delete-icon" src="./delete-icon.svg" alt="trash icon" title="Delete all"> -->
+        <button class="clear-btn">
+            <img class="cleaning-icon" src="./cleaning-icon.svg" alt="close icon">
+            Clear storage
+        </button>
+        
+
+        <ul class="palettesList">
+            <p>No palettes here</p>
+            <li>
+                <img src="./delete-icon.svg" alt="trash icon" class="delete-list">
+            </li>
+        </ul>
+    </div>
+    <img class="folder-icon" src="./folder2.svg" alt="folder icon" title="Show storage">
+    <script src="./script.js"></script>
+</body>
+</html>
